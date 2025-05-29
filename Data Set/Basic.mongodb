@@ -1,0 +1,27 @@
+{
+     "_id":1, 
+     "name":"Manasa", 
+     "age":25, 
+     "grades":[ 
+       {"grade":"Maths","score":80 }, 
+       {"grade":"Science","score":85 } 
+          ]
+} 
+{
+     "_id":2, 
+     "name":"Chandrasekar", 
+     "age":35, 
+     "grades":[ 
+        {"grade":"Maths","score":95 }, 
+        {"grade":"Science","score":88 } 
+          ]
+}
+{ 
+     "_id":3, 
+     "name":"Deepak", 
+     "age":30, 
+     "grades":[ 
+        {"grade":"Maths","score":85 }, 
+        {"grade":"Science","score":90 } 
+          ]
+}

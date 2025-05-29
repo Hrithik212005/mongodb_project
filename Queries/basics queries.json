@@ -1,0 +1,65 @@
+USE student
+
+db.scorce.insertMany([
+{
+  '_id': 1,
+  'name':'Deepak',
+  'age': 30,
+  'grades':[
+    {'grade':'Maths','score': 85 },
+    {'grade':'Science','score': 90 }
+    ]
+}, 
+{
+  '_id': 2,
+  'name':'Chandrasekar',
+  'age': 35,
+  'grades':[
+    {'grade':'Maths','score': 95 },
+    {'grade':'Science','score': 88}
+    ]
+},
+{
+  '_id': 3,
+  'name':'Manasa',
+  'age': 25,
+  'grades':[
+    {'grade':'Maths','score': 80 },
+    {'grade':'Science','score': 85}
+    ]
+}
+]);
+
+
+
+#display all the details
+db.score.find()
+
+#To Update Age =26 Whoose Name Is  Manasa
+db.score.updateOne(
+  { name: "Manasa" },
+  { $set: { age: 36 } }
+)
+
+
+# To  Increment Age By 5  Whose Name Is  Chandrasekar 
+db.score.updateOne(
+  { name: "Chandrasekar" },
+  { $inc: { age: 6 } }
+)
+
+# Example of Upsert in MongoDB
+db.score.updateOne(
+  { name: "Anjali" },
+  { $set: { age: 25, grades: [] } },
+  { upsert: true }
+)
+
+
+# Update Maths Score to 95 Using $[Elem] And Array Filters Of Student Name Deepak 
+db.score.updateOne(
+  { name: "Deepak" },
+  { $set: { "grades.$[elem].score": 99 } },
+  { arrayFilters: [ { "elem.grade": "Maths" } ] }
+)
+
